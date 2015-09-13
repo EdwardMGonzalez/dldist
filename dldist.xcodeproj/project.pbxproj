@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E6E3B6F71BA5E3A2007E1016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B6F61BA5E3A2007E1016 /* main.m */; };
+		E6E3B6FF1BA5E4A5007E1016 /* NSString+dldistForString.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */; };
+		E6E3B7091BA5E728007E1016 /* dldistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7081BA5E728007E1016 /* dldistTests.m */; };
+		E6E3B70E1BA5EAA9007E1016 /* NSString+dldistForString.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +28,22 @@
 /* Begin PBXFileReference section */
 		E6E3B6F31BA5E3A2007E1016 /* dldist */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dldist; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E3B6F61BA5E3A2007E1016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E6E3B6FD1BA5E4A5007E1016 /* NSString+dldistForString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dldistForString.h"; sourceTree = "<group>"; };
+		E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dldistForString.m"; sourceTree = "<group>"; };
+		E6E3B7041BA5E728007E1016 /* dldistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dldistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6E3B7071BA5E728007E1016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6E3B7081BA5E728007E1016 /* dldistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dldistTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E6E3B6F01BA5E3A2007E1016 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6E3B7011BA5E728007E1016 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				E6E3B6F51BA5E3A2007E1016 /* dldist */,
+				E6E3B7051BA5E728007E1016 /* dldistTests */,
 				E6E3B6F41BA5E3A2007E1016 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				E6E3B6F31BA5E3A2007E1016 /* dldist */,
+				E6E3B7041BA5E728007E1016 /* dldistTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,8 +75,27 @@
 			isa = PBXGroup;
 			children = (
 				E6E3B6F61BA5E3A2007E1016 /* main.m */,
+				E6E3B6FD1BA5E4A5007E1016 /* NSString+dldistForString.h */,
+				E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */,
 			);
 			path = dldist;
+			sourceTree = "<group>";
+		};
+		E6E3B7051BA5E728007E1016 /* dldistTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6E3B7081BA5E728007E1016 /* dldistTests.m */,
+				E6E3B7061BA5E728007E1016 /* Supporting Files */,
+			);
+			path = dldistTests;
+			sourceTree = "<group>";
+		};
+		E6E3B7061BA5E728007E1016 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6E3B7071BA5E728007E1016 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +118,23 @@
 			productReference = E6E3B6F31BA5E3A2007E1016 /* dldist */;
 			productType = "com.apple.product-type.tool";
 		};
+		E6E3B7031BA5E728007E1016 /* dldistTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6E3B70A1BA5E728007E1016 /* Build configuration list for PBXNativeTarget "dldistTests" */;
+			buildPhases = (
+				E6E3B7001BA5E728007E1016 /* Sources */,
+				E6E3B7011BA5E728007E1016 /* Frameworks */,
+				E6E3B7021BA5E728007E1016 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dldistTests;
+			productName = dldistTests;
+			productReference = E6E3B7041BA5E728007E1016 /* dldistTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -92,6 +145,9 @@
 				ORGANIZATIONNAME = "Ed Gonzalez";
 				TargetAttributes = {
 					E6E3B6F21BA5E3A2007E1016 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					E6E3B7031BA5E728007E1016 = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
@@ -109,16 +165,37 @@
 			projectRoot = "";
 			targets = (
 				E6E3B6F21BA5E3A2007E1016 /* dldist */,
+				E6E3B7031BA5E728007E1016 /* dldistTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E6E3B7021BA5E728007E1016 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E6E3B6EF1BA5E3A2007E1016 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6E3B6FF1BA5E4A5007E1016 /* NSString+dldistForString.m in Sources */,
 				E6E3B6F71BA5E3A2007E1016 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6E3B7001BA5E728007E1016 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6E3B70E1BA5EAA9007E1016 /* NSString+dldistForString.m in Sources */,
+				E6E3B7091BA5E728007E1016 /* dldistTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +293,38 @@
 			};
 			name = Release;
 		};
+		E6E3B70B1BA5E728007E1016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = dldistTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E6E3B70C1BA5E728007E1016 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = dldistTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -233,6 +342,14 @@
 			buildConfigurations = (
 				E6E3B6FB1BA5E3A2007E1016 /* Debug */,
 				E6E3B6FC1BA5E3A2007E1016 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E6E3B70A1BA5E728007E1016 /* Build configuration list for PBXNativeTarget "dldistTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6E3B70B1BA5E728007E1016 /* Debug */,
+				E6E3B70C1BA5E728007E1016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
