@@ -22,8 +22,11 @@ int main(int argc, const char * argv[]) {
         
         NSString *str1 = [NSString stringWithCString:argv[1]
                                             encoding:NSUTF8StringEncoding];
+        str1 = [str1 lowercaseString];
         NSString *str2 = [NSString stringWithCString:argv[2]
                                             encoding:NSUTF8StringEncoding];
+        str2 = [str2 lowercaseString];
+        
         printf("%lu", [str1 dlDistFrom:str2]);
         
     }
