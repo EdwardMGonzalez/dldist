@@ -7,13 +7,13 @@ dldist is a command line utility that returns the
 
 The distance from 'kitten' to 'sitting':
 
-    > dldist -from kitten -to sitting
+    $ dldist -from kitten -to sitting
     3
 
 The distance from 'hte' to 'the':
-    > dldist -from hte -to the
+    $ dldist -from hte -to the
     1
 
 The program also accepts a dictionary file.
-    > dldist -dictionary ~/Documents/en.txt citten
+    $ dldist -dictionary ~/Documents/en.txt citten
     1: bitten cittern kitten litten mitten pitten sitten yitten
