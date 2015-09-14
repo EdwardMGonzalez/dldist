@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import "NSString+dlDistFrom.h"
+#import "NSString+dlDistTo.h"
 
 
 @interface dldistTests : XCTestCase
@@ -18,68 +18,68 @@
 @implementation dldistTests
 
 - (void) testIdenticalStrings {
-    XCTAssertEqual(0, [@"str" dlDistFrom:@"str"],
+    XCTAssertEqual(0, [@"str" dlDistTo:@"str"],
               @"Distance should be 0 with identical strings.");
 }
 
 - (void) testComparisonToEmptyString {
-    XCTAssertEqual(5, [@"hippo" dlDistFrom:@""],
+    XCTAssertEqual(5, [@"hippo" dlDistTo:@""],
               @"Distance from 'hippo' to empty string is 5 (length of 'hippo')");
 }
 
 - (void) testComparisonFromEmptyString {
-    XCTAssertEqual(3, [@"" dlDistFrom:@"elk"],
+    XCTAssertEqual(3, [@"" dlDistTo:@"elk"],
               @"Distance from empty string to 'elk' is size of 'elk'");
 }
 
 - (void) testSingleAdditionAtEnd {
-    XCTAssertEqual(1, [@"mat" dlDistFrom:@"math"],
+    XCTAssertEqual(1, [@"mat" dlDistTo:@"math"],
               @"Distance from 'mat' to 'math' is 1.");
 }
 
 - (void) testSingleDeletionAtEnd {
-    XCTAssertEqual(1, [@"bath" dlDistFrom:@"bat"],
+    XCTAssertEqual(1, [@"bath" dlDistTo:@"bat"],
               @"Distance from 'bath' to 'bat' should be 1.");
 }
 
 - (void) testSingleInsertInMiddle {
-    XCTAssertEqual(1, [@"ba" dlDistFrom:@"bea"],
+    XCTAssertEqual(1, [@"ba" dlDistTo:@"bea"],
               @"Distance from 'ba' to 'bea' should be 1.");
 }
 
 - (void) testMultipleInsertions {
-    XCTAssertEqual(2, [@"gas" dlDistFrom:@"goats"],
+    XCTAssertEqual(2, [@"gas" dlDistTo:@"goats"],
               @"Distance from 'gas' to 'goats' is two inserts.");
 }
 
 - (void) testKittenToSitting {
-    XCTAssertEqual(3, [@"kitten" dlDistFrom:@"Sitting"],
+    XCTAssertEqual(3, [@"kitten" dlDistTo:@"Sitting"],
               @"Kitten -> Sitting example from wiki article");
 }
 
 - (void) testSaturdayToSunday {
-    XCTAssertEqual(3, [@"Saturday" dlDistFrom:@"Sunday"],
+    XCTAssertEqual(3, [@"Saturday" dlDistTo:@"Sunday"],
               @"Saturday to Sunday test from wiki article");
 }
 
 - (void) testSingleTrasposition {
-    XCTAssertEqual(1, [@"teh" dlDistFrom:@"the"],
+    XCTAssertEqual(1, [@"teh" dlDistTo:@"the"],
               @"Distance from 'teh' to 'the' is 1 transposition");
 }
 
 - (void) testingComplexError {
-    XCTAssertEqual(10, [@"aacedfgihjjklmonprrtvxwez" dlDistFrom:@"abcdefghijklmnopqrstuvwxyz"],
+    XCTAssertEqual(10, [@"aacedfgihjjklmonprrtvxwez" dlDistTo:@"abcdefghijklmnopqrstuvwxyz"],
               @"Complex error");
 }
 
 - (void) testingLongestWord {
-    XCTAssertEqual(1, [@"pneumonoultramicroscopicsilicovolcanoconiossi" dlDistFrom:
+    XCTAssertEqual(1, [@"pneumonoultramicroscopicsilicovolcanoconiossi" dlDistTo:
                        @"pneumonoultramicroscopicsilicovolcanoconiosis"],
                    @"Long Word, dist 1");
 }
 
 - (void) testingTranspositionInFirstCharacters {
-    XCTAssertEqual(1, [@"hte" dlDistFrom:@"the"],
+    XCTAssertEqual(1, [@"hte" dlDistTo:@"the"],
                    @"Dist should be 1");
 }
 

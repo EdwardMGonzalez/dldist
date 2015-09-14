@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Ed Gonzalez. All rights reserved.
 //
 
-#import "NSString+dlDistFrom.h"
+#import "NSString+dlDistTo.h"
 
-@implementation NSString (dlDistFrom)
+@implementation NSString (dlDistTo)
 
-- (unsigned long) dlDistFrom:(NSString *)str {
+- (unsigned long) dlDistTo:(NSString *)str {
     // simple cases
     if ([self isEqualToString:str]) return 0;
     if (0 == self.length) return str.length;

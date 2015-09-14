@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6DB11931BA74664002EBBFF /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DB11921BA74664002EBBFF /* AppState.m */; };
+		E6DB11941BA74664002EBBFF /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DB11921BA74664002EBBFF /* AppState.m */; };
 		E6E3B6F71BA5E3A2007E1016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B6F61BA5E3A2007E1016 /* main.m */; };
 		E6E3B7091BA5E728007E1016 /* dldistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7081BA5E728007E1016 /* dldistTests.m */; };
-		E6E3B7111BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */; };
-		E6E3B7121BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */; };
+		E6E3B7111BA6240E007E1016 /* NSString+dlDistTo.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7101BA6240E007E1016 /* NSString+dlDistTo.m */; };
+		E6E3B7121BA6240E007E1016 /* NSString+dlDistTo.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7101BA6240E007E1016 /* NSString+dlDistTo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,13 +28,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E6DB11911BA74664002EBBFF /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
+		E6DB11921BA74664002EBBFF /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		E6E3B6F31BA5E3A2007E1016 /* dldist */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dldist; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E3B6F61BA5E3A2007E1016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E6E3B7041BA5E728007E1016 /* dldistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dldistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E3B7071BA5E728007E1016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6E3B7081BA5E728007E1016 /* dldistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dldistTests.m; sourceTree = "<group>"; };
-		E6E3B70F1BA6240E007E1016 /* NSString+dlDistFrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dlDistFrom.h"; sourceTree = "<group>"; };
-		E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dlDistFrom.m"; sourceTree = "<group>"; };
+		E6E3B70F1BA6240E007E1016 /* NSString+dlDistTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dlDistTo.h"; sourceTree = "<group>"; };
+		E6E3B7101BA6240E007E1016 /* NSString+dlDistTo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dlDistTo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +79,10 @@
 			isa = PBXGroup;
 			children = (
 				E6E3B6F61BA5E3A2007E1016 /* main.m */,
-				E6E3B70F1BA6240E007E1016 /* NSString+dlDistFrom.h */,
-				E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */,
+				E6E3B70F1BA6240E007E1016 /* NSString+dlDistTo.h */,
+				E6E3B7101BA6240E007E1016 /* NSString+dlDistTo.m */,
+				E6DB11911BA74664002EBBFF /* AppState.h */,
+				E6DB11921BA74664002EBBFF /* AppState.m */,
 			);
 			path = dldist;
 			sourceTree = "<group>";
@@ -185,7 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E3B7111BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */,
+				E6E3B7111BA6240E007E1016 /* NSString+dlDistTo.m in Sources */,
+				E6DB11931BA74664002EBBFF /* AppState.m in Sources */,
 				E6E3B6F71BA5E3A2007E1016 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,7 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E3B7121BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */,
+				E6E3B7121BA6240E007E1016 /* NSString+dlDistTo.m in Sources */,
+				E6DB11941BA74664002EBBFF /* AppState.m in Sources */,
 				E6E3B7091BA5E728007E1016 /* dldistTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
