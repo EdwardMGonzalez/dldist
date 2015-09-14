@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E6E3B6F71BA5E3A2007E1016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B6F61BA5E3A2007E1016 /* main.m */; };
-		E6E3B6FF1BA5E4A5007E1016 /* NSString+dldistForString.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */; };
 		E6E3B7091BA5E728007E1016 /* dldistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7081BA5E728007E1016 /* dldistTests.m */; };
-		E6E3B70E1BA5EAA9007E1016 /* NSString+dldistForString.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */; };
+		E6E3B7111BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */; };
+		E6E3B7121BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,11 +28,11 @@
 /* Begin PBXFileReference section */
 		E6E3B6F31BA5E3A2007E1016 /* dldist */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dldist; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E3B6F61BA5E3A2007E1016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E6E3B6FD1BA5E4A5007E1016 /* NSString+dldistForString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dldistForString.h"; sourceTree = "<group>"; };
-		E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dldistForString.m"; sourceTree = "<group>"; };
 		E6E3B7041BA5E728007E1016 /* dldistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dldistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E3B7071BA5E728007E1016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6E3B7081BA5E728007E1016 /* dldistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dldistTests.m; sourceTree = "<group>"; };
+		E6E3B70F1BA6240E007E1016 /* NSString+dlDistFrom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dlDistFrom.h"; sourceTree = "<group>"; };
+		E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dlDistFrom.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				E6E3B6F61BA5E3A2007E1016 /* main.m */,
-				E6E3B6FD1BA5E4A5007E1016 /* NSString+dldistForString.h */,
-				E6E3B6FE1BA5E4A5007E1016 /* NSString+dldistForString.m */,
+				E6E3B70F1BA6240E007E1016 /* NSString+dlDistFrom.h */,
+				E6E3B7101BA6240E007E1016 /* NSString+dlDistFrom.m */,
 			);
 			path = dldist;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E3B6FF1BA5E4A5007E1016 /* NSString+dldistForString.m in Sources */,
+				E6E3B7111BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */,
 				E6E3B6F71BA5E3A2007E1016 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E3B70E1BA5EAA9007E1016 /* NSString+dldistForString.m in Sources */,
+				E6E3B7121BA6240E007E1016 /* NSString+dlDistFrom.m in Sources */,
 				E6E3B7091BA5E728007E1016 /* dldistTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +344,7 @@
 				E6E3B6FC1BA5E3A2007E1016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6E3B70A1BA5E728007E1016 /* Build configuration list for PBXNativeTarget "dldistTests" */ = {
 			isa = XCConfigurationList;
@@ -352,6 +353,7 @@
 				E6E3B70C1BA5E728007E1016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
