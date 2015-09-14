@@ -83,6 +83,12 @@
                    @"Dist should be 1");
 }
 
+- (void) testSpaceInString {
+    XCTAssertEqual(1, [@"sky line" dlDistTo:@"skyline"],
+                   @"Distance from 'sky line' to 'skyline' is one delete");
+}
+
+
 
 
 @end

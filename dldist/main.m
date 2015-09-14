@@ -86,9 +86,8 @@ void processDictionary(AppState *state) {
     printf("%lu: ", closestDistance);
     
     for (NSString *word in bestMatches) {
-        printf("%s ", [word cStringUsingEncoding:NSUTF8StringEncoding]);
+        printf("'%s' ", [word cStringUsingEncoding:NSUTF8StringEncoding]);
     }
-    
 }
 
 // entry point
