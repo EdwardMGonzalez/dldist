@@ -11,4 +11,5 @@
 @interface AppState : NSObject
 @property NSString *from;
 @property NSString *to;
+@property NSString *pathToDictionary;
 @end
