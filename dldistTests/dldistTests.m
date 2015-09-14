@@ -68,9 +68,21 @@
 }
 
 - (void) testingComplexError {
-    XCTAssertEqual(13, [@"aaaaaaaaaaaaa" dlDistFrom:@"bbbbbbbbbbbbb"],
+    XCTAssertEqual(10, [@"aacedfgihjjklmonprrtvxwez" dlDistFrom:@"abcdefghijklmnopqrstuvwxyz"],
               @"Complex error");
 }
+
+- (void) testingLongestWord {
+    XCTAssertEqual(1, [@"pneumonoultramicroscopicsilicovolcanoconiossi" dlDistFrom:
+                       @"pneumonoultramicroscopicsilicovolcanoconiosis"],
+                   @"Long Word, dist 1");
+}
+
+- (void) testingTranspositionInFirstCharacters {
+    XCTAssertEqual(1, [@"hte" dlDistFrom:@"the"],
+                   @"Dist should be 1");
+}
+
 
 
 @end
