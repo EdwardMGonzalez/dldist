@@ -10,8 +10,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (dlDistFrom)
+@interface NSString (dlDistTo)
 
-- (unsigned long) dlDistFrom: (NSString *) str;
+- (unsigned long) dlDistTo: (NSString *) str;
 
 @end

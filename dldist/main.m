@@ -7,28 +7,43 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSString+dlDistFrom.h"
+#import "NSString+dlDistTo.h"
+#import "AppState.h"
 
 void printUsage() {
-    printf("usage: dldist str1 str2\n");
+    printf("usage: dldist -to toString fromString\n");
+}
+
+
+
+AppState* parseCommandArguments(int argc, const char * argv[]) {
+    NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
+    
+    AppState *state = [[AppState alloc] init];
+    [state setTo:[standardDefaults stringForKey:@"to"]];
+    
+    state.from = [NSString stringWithUTF8String:argv[argc - 1]];
+    return state;
+}
+
+Boolean isAppInRunnableState(AppState *state) {
+    if ([state.from length] > 0)
+        return YES;
+    return NO;
 }
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        if(argc < 3) {
-            printUsage();
-            return 0;
+        AppState *state = parseCommandArguments(argc, argv);
+        
+        if(isAppInRunnableState(state))
+        {
+            printf("%lu", [state.from dlDistTo:state.to]);
         }
         
-        NSString *str1 = [NSString stringWithCString:argv[1]
-                                            encoding:NSUTF8StringEncoding];
-        str1 = [str1 lowercaseString];
-        NSString *str2 = [NSString stringWithCString:argv[2]
-                                            encoding:NSUTF8StringEncoding];
-        str2 = [str2 lowercaseString];
-        
-        printf("%lu", [str1 dlDistFrom:str2]);
         
     }
     return 0;
 }
+
+
