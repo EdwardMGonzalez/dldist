@@ -22,5 +22,5 @@ The program also accepts a dictionary file.
 
 To check multiple words at once we can use the -list parameter..
 
-        $ dldist -dictionary ~/Documents/en.txt -list ~/Documents/file.txt
-        0: [mug] 'mug'
+    $ dldist -dictionary ~/Documents/en.txt -list ~/Documents/file.txt
+    0: [mug] 'mug'
