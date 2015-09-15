@@ -12,39 +12,38 @@
 
 // let folks know how to call us
 void printUsage() {
-    printf("usage: dldist [-to toString]");
-    printf(" [-dictionary path_to_file] [-list path_to_file]");
-    printf(" fromString\n\n");
+    printf("usage: dldist [-to to_string] [-from from_string]");
+    printf(" [-dictionary path_to_dictionary_file] [-list path_to_check_list]");
+    printf("\n\n");
     
-    printf("\t -to toString: \n");
+    printf("\t -to to_string: \n");
     printf("\tUsed for simple comparison from one string to another\n\n");
     
-    printf("\t -dictionary path_to_file:\n");
+    printf("\t -from from_string: \n");
+    printf("\tUsed for simple comparison from one string to another\n\n");
+    
+    printf("\t -dictionary path_to_dictionary_file:\n");
     printf("\tThe file should have each word on a new line.");
     printf(" For each line the distance will be computed relative to");
-    printf(" fromString\n\n");
+    printf(" from_string or each element of check_list.");
+    printf(" If -list is used, from_string is ignored\n\n");
     
     
     printf("\t -list path_to_file:\n");
     printf("\tThe file should have each word on a new line.");
     printf(" For each line the distance will be computed relative from");
-    printf(" each line. if -list is used, fromString is ignored\n\n");
+    printf(" each line. if -list is used, from_string is ignored\n\n");
 }
 
 // pull out state from command line
 AppState* parseCommandArguments(int argc, const char * argv[]) {
     NSUserDefaults *standardDefaults = [NSUserDefaults standardUserDefaults];
-    AppState *state = [[AppState alloc] init];
-    
-    [state setTo:[standardDefaults stringForKey:@"to"]];
 
-    NSString *tmpPath = [standardDefaults stringForKey:@"dictionary"];
-    [state setPathToDictionary:[tmpPath stringByStandardizingPath]];
-    
-    tmpPath = [standardDefaults stringForKey:@"list"];
-    [state setPathToCheckList:[tmpPath stringByStandardizingPath]];
-    
-    state.from = [NSString stringWithUTF8String:argv[argc - 1]];
+    AppState *state = [[AppState alloc] init];
+    state.pathToDictionary = [[standardDefaults stringForKey:@"dictionary"] stringByStandardizingPath];
+    state.pathToCheckList = [[standardDefaults stringForKey:@"list"] stringByStandardizingPath];
+    state.to = [standardDefaults stringForKey:@"to"];
+    state.from = [standardDefaults stringForKey:@"from"];
     
     return state;
 }
@@ -75,6 +74,7 @@ NSArray * getWordListFromFile(NSString *path) {
     NSString *fileContents = [[NSString alloc] initWithContentsOfFile:path
                                                              encoding:NSUTF8StringEncoding error:&error];
     if ([error.localizedDescription length] > 0) {
+        NSLog(@"Error loading file: %@\n", path);
         NSLog(@"%@", [error localizedDescription]);
         return nil;
     }
@@ -83,11 +83,7 @@ NSArray * getWordListFromFile(NSString *path) {
     return wordList;
 }
 
-void processDictionary(AppState *state) {
-    // prep dictionary
-    NSArray *dictionaryWords = getWordListFromFile(state.pathToDictionary);
-    
-    // prep check list (one or more entries)
+NSArray* prepWordsToCheck(AppState *state) {
     NSArray *wordsToCheck;
     if(state.pathToCheckList.length > 0)
     {
@@ -95,6 +91,23 @@ void processDictionary(AppState *state) {
     } else {
         wordsToCheck = [NSArray arrayWithObject:state.from];
     }
+    return wordsToCheck;
+}
+
+NSArray* prepDictionary(AppState *state) {
+    NSArray *dictionaryWords;
+    if (state.pathToDictionary.length > 0){
+        dictionaryWords = getWordListFromFile(state.pathToDictionary);
+    } else {
+        dictionaryWords = [NSArray arrayWithObject:state.to];
+    }
+    return dictionaryWords;
+}
+
+void findDistances(AppState *state) {
+    NSArray *wordsToCheck = prepWordsToCheck(state);
+    NSArray *dictionaryWords = prepDictionary(state);
+    
     
     // walk through the check list
     for (NSString *from in wordsToCheck) {
@@ -102,18 +115,19 @@ void processDictionary(AppState *state) {
         unsigned long closestDistance = NSUIntegerMax;
         NSArray *bestMatches = [[NSArray alloc] init];
         
-        // search for a match
+        //  walk through the dictionary
         for (NSString *to in dictionaryWords) {
             unsigned long dist = [from dlDistTo:to];
             if (dist < closestDistance) {
                 closestDistance = dist;
                 bestMatches = [NSArray arrayWithObject:[to copy]];
-                if (0 == dist) break;
+                if (0 == dist) break; // exact match, we can stop searching
             } else if (dist == closestDistance) {
                 bestMatches = [bestMatches arrayByAddingObject:[to copy]];
             }
         }
         
+        // assume we found a match when distance isn't max integer size
         if(closestDistance != NSUIntegerMax) {
             printf("%lu: [%s]  ", closestDistance,
                    [from cStringUsingEncoding:NSUTF8StringEncoding]);
@@ -121,6 +135,7 @@ void processDictionary(AppState *state) {
                 printf("'%s' ", [word cStringUsingEncoding:NSUTF8StringEncoding]);
             }
             printf("\n");
+            fflush(stdout);
         }
     }
 }
@@ -131,11 +146,7 @@ int main(int argc, const char * argv[]) {
         AppState *state = parseCommandArguments(argc, argv);
         
         if (isAppInRunnableState(state)) {
-            if ([state.to length] > 0) {
-                printf("%lu", [state.from dlDistTo:state.to]);
-            } else if ([state.pathToDictionary length] > 0) {
-                processDictionary(state);
-            } else printUsage();
+            findDistances(state);
         }
         else {
             printUsage();
