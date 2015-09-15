@@ -18,4 +18,9 @@ The distance from 'hte' to 'the':
 The program also accepts a dictionary file.
 
     $ dldist -dictionary ~/Documents/en.txt citten
-    1: bitten cittern kitten litten mitten pitten sitten yitten
+    1: [citten] 'bitten' 'cittern' 'kitten' 'litten' 'mitten' 'pitten' 'sitten' 'yitten'
+
+To check multiple words at once we can use the -list parameter..
+
+        $ dldist -dictionary ~/Documents/en.txt -list ~/Documents/file.txt
+        0: [mug] 'mug'
