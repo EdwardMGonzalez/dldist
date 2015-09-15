@@ -12,4 +12,5 @@
 @property NSString *from;
 @property NSString *to;
 @property NSString *pathToDictionary;
+@property NSString *pathToCheckList;
 @end
