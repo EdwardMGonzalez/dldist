@@ -5,22 +5,20 @@ dldist is a command line utility that returns the
 
 
 
-The distance from 'kitten' to 'sitting':
+The distance from 'citten' to 'kitten':
 
-    $ dldist -from kitten -to sitting
-    3
+    $ dldist -from citten -to kitten
+    1: [citten]  'kitten'
 
-The distance from 'hte' to 'the':
-
-    $ dldist -from hte -to the
-    1
 
 The program also accepts a dictionary file.
 
-    $ dldist -dictionary ~/Documents/en.txt citten
-    1: [citten] 'bitten' 'cittern' 'kitten' 'litten' 'mitten' 'pitten' 'sitten' 'yitten'
+    $ dldist -dictionary ~/Documents/en.txt -from   citten
+    1: [citten]  'bitten' 'cittern' 'kitten' 'litten' 'mitten' 'pitten' 'sitten' 'yitten'
+
 
 To check multiple words at once we can use the -list parameter..
 
     $ dldist -dictionary ~/Documents/en.txt -list ~/Documents/file.txt
     0: [mug] 'mug'
+    ...
